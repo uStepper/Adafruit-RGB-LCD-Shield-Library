@@ -19,12 +19,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <inttypes.h>
-#include <Wire.h>
-#ifdef __SAM3X8E__ // Arduino Due
- #define WIRE Wire1
-#else 
- #define WIRE Wire
-#endif
 
 #if ARDUINO >= 100
  #include "Arduino.h"
@@ -73,9 +67,6 @@ Adafruit_RGBLCDShield::Adafruit_RGBLCDShield() {
   // we can't begin() yet :(
 }
 
-
-
-
 void Adafruit_RGBLCDShield::init(uint8_t fourbitmode, uint8_t rs, uint8_t rw, uint8_t enable,
 			 uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
 			 uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7)
@@ -115,7 +106,6 @@ void Adafruit_RGBLCDShield::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) 
   // check if i2c
   if (_i2cAddr != 255) {
     //_i2c.begin(_i2cAddr);
-    WIRE.begin();
     _i2c.begin();
 
     _i2c.pinMode(8, OUTPUT);

@@ -8,9 +8,8 @@ When a button is pressed, the backlight changes color.
 **********************/
 
 // include the library code:
-#include <Wire.h>
 #include <Adafruit_RGBLCDShield.h>
-#include <utility/Adafruit_MCP23017.h>
+#include <Adafruit_MCP23017.h>
 
 
 // The shield uses the I2C SCL and SDA pins. On classic Arduinos
